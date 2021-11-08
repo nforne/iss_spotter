@@ -135,7 +135,10 @@ const nextISSTimesForMyLocation = function() {
             if (error) {
               console.log(error);
             } else {
-              console.log(nxts.response);
+              const results = nxts.response;
+              for (let i of results) {
+                console.log(`Next pass at ${new Date(new Date().getTime() + i.risetime)} for ${i.duration} seconds!`);
+              }
             }
           });
         }
